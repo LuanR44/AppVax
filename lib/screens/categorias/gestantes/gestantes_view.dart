@@ -1,6 +1,6 @@
 import 'package:app_vax/controllers/categorias/gestantes/gestantes_controller.dart';
 import 'package:flutter/material.dart';
-
+import 'package:app_vax/screens/menu/menu_view.dart';
 import 'package:get/get.dart';
 
 class Gestantes extends StatefulWidget {
@@ -54,7 +54,13 @@ class _GestantesState extends State<Gestantes> {
           ),
           iconTheme: IconThemeData(color: Colors.grey.shade200),
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      settings: const RouteSettings(name: '/menu'),
+                      builder: (_) => Menu()));
+            },
             icon: const Icon(Icons.home),
             color: Colors.grey.shade200,
           ),
@@ -64,17 +70,16 @@ class _GestantesState extends State<Gestantes> {
       body: Form(
         key: _globalKey,
         child: Stack(alignment: Alignment.centerLeft, children: <Widget>[
-          Positioned(
-            left: 0,
-            top: 0,
-            child: Column(children: <Widget>[
-              Container(
+          Column(children: <Widget>[
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                         colors: [Colors.white, Colors.green.shade800],
                         begin: Alignment.bottomLeft,
                         end: Alignment.topRight)),
-                height: size.height, // - (size.height / 11.7),
+                height: size.height / 1.18, // - (size.height / 11.7),
                 width: size.width,
                 child: Row(children: [
                   Container(
@@ -224,67 +229,65 @@ class _GestantesState extends State<Gestantes> {
                                 end: Alignment.topRight)),
                         child: Column(children: [
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           const Text('Informações',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black54,
-                                  fontSize: 50)),
+                                  fontSize: 40)),
                           const SizedBox(
-                            height: 50,
+                            height: 15,
                           ),
                           Container(
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(25)),
-                            ),
-                            height: size.height / 1.5,
-                            width: size.width / 1.6,
-                            //color: Colors.white,
-                            child: Card(
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(25)),
+                              ),
+                              height: 600,
+                              width: size.width / 1.6,
+                              //color: Colors.white,
+                              child: Card(
                                 shape: const RoundedRectangleBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(15))),
                                 elevation: 15,
-                                child: Expanded(
-                                  child: Column(children: [
-                                    const SizedBox(height: 30),
-                                    Text(
-                                      title,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black54,
-                                          fontSize: 50),
+                                child: Column(children: [
+                                  const SizedBox(height: 30),
+                                  Text(
+                                    title,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black54,
+                                        fontSize: 20),
+                                  ),
+                                  const SizedBox(height: 25),
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      textCard,
+                                      textAlign: TextAlign.center,
                                     ),
-                                    const SizedBox(height: 50),
-                                    Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Text(
-                                        textCard,
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: Text(flavourText,
-                                          textAlign: TextAlign.center),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: Text(whenText,
-                                          textAlign: TextAlign.center),
-                                    ),
-                                  ]),
-                                )),
-                          )
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Text(flavourText,
+                                        textAlign: TextAlign.center),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Text(whenText,
+                                        textAlign: TextAlign.center),
+                                  ),
+                                ]),
+                              )),
                         ])),
                   )
                 ]),
-              )
-            ]),
-          )
+              ),
+            )
+          ]),
         ]),
       ),
     );

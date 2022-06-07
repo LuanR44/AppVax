@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io' as IO;
 import 'dart:io';
 
+import 'package:app_vax/screens/creditos/creditos_view.dart';
 import 'package:app_vax/screens/menu/menu_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -47,7 +48,7 @@ class _LoginState extends State<Login> {
             iconTheme: IconThemeData(color: Colors.grey.shade200),
             leading: IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.home),
+              icon: const Icon(Icons.vaccines),
               color: Colors.grey.shade200,
             ),
             centerTitle: true,
@@ -71,92 +72,32 @@ class _LoginState extends State<Login> {
                         width: size.width,
                         child: SingleChildScrollView(
                           child: Column(children: [
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(children: [
-                              /*Padding(
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 50),
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                        width: size.width / 13,
-                                        height: size.height / 8,
-                                        child: Image(
-                                            alignment: Alignment.center,
-                                            image: AssetImage(
-                                                'assets/icons8-financial-changes-96.png'))),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Container(
-                                        width: size.width / 13,
-                                        height: size.height / 8,
-                                        child: Image(
-                                            alignment: Alignment.center,
-                                            image: AssetImage(
-                                                'assets/icons8-folder-96.png'))),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Container(
-                                        width: size.width / 13,
-                                        height: size.height / 8,
-                                        child: Image(
-                                            alignment: Alignment.center,
-                                            image: AssetImage(
-                                                'assets/icons8-database-administrator-96.png'))),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Container(
-                                        width: size.width / 13,
-                                        height: size.height / 8,
-                                        child: Image(
-                                            alignment: Alignment.center,
-                                            image: AssetImage(
-                                                'assets/icons8-checklist-96.png'))),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Container(
-                                        width: size.width / 13,
-                                        height: size.height / 8,
-                                        child: Image(
-                                            alignment: Alignment.center,
-                                            image: AssetImage(
-                                                'assets/icons8-search-in-list-96.png'))),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Container(
-                                        width: size.width / 13,
-                                        height: size.height / 8,
-                                        child: Image(
-                                            alignment: Alignment.center,
-                                            image: AssetImage(
-                                                'assets/icons8-data-provider-96.png'))),
-                                  ],
-                                ),
-                              ),*/
+                            //  SizedBox(
+                            //   height: size.height/10,
+                            // ),
+                            Column(children: [
                               const SizedBox(
-                                width: 150,
+                                width: 50,
                               ),
                               Column(children: [
                                 Container(
-                                    height: 100,
                                     child: const Text(
-                                      "App Vax",
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                          fontSize: 80,
-                                          color:
-                                              Color.fromARGB(188, 59, 57, 57)),
-                                    )),
-                                const SizedBox(
-                                  height: 50,
-                                ),
+                                  "App Vax",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: 60,
+                                      color: Color.fromARGB(188, 59, 57, 57)),
+                                )),
+                                Container(
+                                    height: size.height / 4,
+                                    width: size.width / 4,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/Greenlight_Vaccinations.png"),
+                                      fit: BoxFit.fitWidth,
+                                    ))),
+
                                 /*  Container(
                                     height: size.height / 2,
                                     width: size.width / 2,
@@ -166,21 +107,13 @@ class _LoginState extends State<Login> {
                                           "assets/office.png"),
                                       fit: BoxFit.fitWidth,
                                     ))),*/
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 50),
-                                  child: Container(),
-                                ),
                               ]),
-                              const SizedBox(
-                                width: 300,
-                              ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10.0),
                                 child: Card(
                                   shape: const RoundedRectangleBorder(
-                                      borderRadius: const BorderRadius.vertical(
+                                      borderRadius: BorderRadius.vertical(
                                           top: Radius.circular(25))),
                                   elevation: 15,
                                   child: Container(
@@ -195,8 +128,8 @@ class _LoginState extends State<Login> {
                                               ],
                                               begin: Alignment.centerLeft,
                                               end: Alignment.centerRight)),
-                                      width: size.width / 3,
-                                      height: size.height / 1.1,
+                                      width: size.width / 1.6,
+                                      height: size.height / 1.3,
                                       child: Column(children: [
                                         const SizedBox(
                                           height: 10,
@@ -223,110 +156,23 @@ class _LoginState extends State<Login> {
                                           ),
                                         ),
                                         const SizedBox(
-                                          height: 90,
+                                          height: 170,
                                         ),
-                                        Container(
-                                          width: size.width / 5,
-                                          height: size.height / 15,
-                                          child: TextFormField(
-                                            controller: _controller,
-                                            autocorrect: false,
-                                            autofocus: true,
-                                            cursorColor: Colors.white,
-                                            style: TextStyle(
-                                                color: Colors.grey.shade900),
-                                            onChanged: (String data) {
-                                              _username = data;
-                                            },
-                                            decoration: InputDecoration(
-                                              hintText: 'Usuário',
-                                              hintStyle: TextStyle(
-                                                  color: Colors.grey.shade900),
-                                              floatingLabelBehavior:
-                                                  FloatingLabelBehavior.always,
-                                              fillColor: Colors.grey.shade900,
-                                              contentPadding:
-                                                  const EdgeInsets.only(
-                                                      left: 14.0,
-                                                      bottom: 8.0,
-                                                      top: 8.0),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color:
-                                                        Colors.grey.shade900),
-                                                borderRadius:
-                                                    BorderRadius.circular(25.7),
-                                              ),
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color:
-                                                        Colors.grey.shade900),
-                                                borderRadius:
-                                                    BorderRadius.circular(25.7),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: size.width / 5,
-                                          height: size.height / 15,
-                                          child: TextFormField(
-                                            controller: _controller2,
-                                            autocorrect: false,
-                                            autofocus: false,
-                                            obscureText: true,
-                                            cursorColor: Colors.grey.shade900,
-                                            style: TextStyle(
-                                                color: Colors.grey.shade900),
-                                            onChanged: (String data) {
-                                              _password = data;
-                                              print(_password);
-                                            },
-                                            decoration: InputDecoration(
-                                              hintText: 'Senha',
-                                              hintStyle: TextStyle(
-                                                  color: Colors.grey.shade900),
-                                              floatingLabelBehavior:
-                                                  FloatingLabelBehavior.always,
-                                              fillColor: Colors.grey.shade900,
-                                              contentPadding:
-                                                  const EdgeInsets.only(
-                                                      left: 14.0,
-                                                      bottom: 8.0,
-                                                      top: 8.0),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color:
-                                                        Colors.grey.shade900),
-                                                borderRadius:
-                                                    BorderRadius.circular(25.7),
-                                              ),
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color:
-                                                        Colors.grey.shade900),
-                                                borderRadius:
-                                                    BorderRadius.circular(25.7),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 60,
-                                        ),
-                                        Row(children: [
-                                          const SizedBox(
-                                            width: 180,
+                                        Column(children: [
+                                          SizedBox(
+                                            width: 100,
                                           ),
                                           ElevatedButton(
                                               child: Container(
-                                                height: 20,
-                                                width: 100,
-                                                child: const Text(
-                                                  "Entrar",
-                                                  textAlign: TextAlign.center,
+                                                height: 50,
+                                                width: 150,
+                                                child: Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 10),
+                                                  child: const Text(
+                                                    "Entrar",
+                                                    textAlign: TextAlign.center,
+                                                  ),
                                                 ),
                                               ),
                                               style: ElevatedButton.styleFrom(
@@ -334,7 +180,7 @@ class _LoginState extends State<Login> {
                                                 onPrimary: Colors.white,
                                                 alignment: Alignment.bottomLeft,
                                                 textStyle: const TextStyle(
-                                                    fontSize: 15,
+                                                    fontSize: 20,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.white),
                                                 padding:
@@ -357,6 +203,57 @@ class _LoginState extends State<Login> {
                                                                 name: '/menu'),
                                                         builder: (_) =>
                                                             Menu()));
+                                              }
+
+                                              // this._controller.clear();
+                                              // this._controller2.clear();
+
+                                              ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          ElevatedButton(
+                                              child: Container(
+                                                height: 50,
+                                                width: 150,
+                                                child: Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 10),
+                                                  child: const Text(
+                                                    "Saiba mais",
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                ),
+                                              ),
+                                              style: ElevatedButton.styleFrom(
+                                                primary: Colors.grey.shade900,
+                                                onPrimary: Colors.white,
+                                                alignment: Alignment.bottomLeft,
+                                                textStyle: const TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white),
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 10,
+                                                        vertical: 10),
+                                                elevation: 25.0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          30.0),
+                                                ),
+                                              ),
+                                              onPressed: () async {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        settings:
+                                                            const RouteSettings(
+                                                                name:
+                                                                    '/creditos'),
+                                                        builder: (_) =>
+                                                            Creditos()));
                                               }
 
                                               // this._controller.clear();

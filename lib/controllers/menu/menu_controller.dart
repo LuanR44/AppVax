@@ -65,7 +65,7 @@ class MenuController extends GetxController {
         return DataRow(selected: true, cells: getCells(cells));
       }).toList();
 
-  String menuTitle = 'IMPORTANTE !';
+  String menuTitle = 'Importante !';
 
   String menuContent =
       'Após receberem as vacinas, as pessoas podem sentir algumas reações que são esperadas como febre, cansaço, dor e vermelhidão local. Isto ocorre pois a vacina está estimulando a produção dos anticorpos e a defesa do nosso organismo. Estas reações são geralmente transitórias e não fazem mal, apesar de serem incômodas.';

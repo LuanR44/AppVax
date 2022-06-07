@@ -1,4 +1,6 @@
 import 'package:app_vax/controllers/categorias/idosos/idosos_controller.dart';
+import 'package:app_vax/screens/login/login_view.dart';
+import 'package:app_vax/screens/menu/menu_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -54,7 +56,13 @@ class _IdososState extends State<Idosos> {
           ),
           iconTheme: IconThemeData(color: Colors.grey.shade200),
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      settings: const RouteSettings(name: '/menu'),
+                      builder: (_) => Menu()));
+            },
             icon: const Icon(Icons.home),
             color: Colors.grey.shade200,
           ),
@@ -230,55 +238,53 @@ class _IdososState extends State<Idosos> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black54,
-                                  fontSize: 50)),
+                                  fontSize: 25)),
                           const SizedBox(
-                            height: 50,
+                            height: 20,
                           ),
                           Container(
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(25)),
-                            ),
-                            height: size.height / 1.5,
-                            width: size.width / 1.6,
-                            //color: Colors.white,
-                            child: Card(
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(25)),
+                              ),
+                              height: size.height / 1.18,
+                              width: size.width / 1.6,
+                              color: Colors.white,
+                              child: Card(
                                 shape: const RoundedRectangleBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(15))),
                                 elevation: 15,
-                                child: Expanded(
-                                  child: Column(children: [
-                                    const SizedBox(height: 30),
-                                    Text(
-                                      title,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black54,
-                                          fontSize: 50),
+                                child: Column(children: [
+                                  const SizedBox(height: 20),
+                                  Text(
+                                    title,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black54,
+                                        fontSize: 25),
+                                  ),
+                                  const SizedBox(height: 50),
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      textCard,
+                                      textAlign: TextAlign.center,
                                     ),
-                                    const SizedBox(height: 100),
-                                    Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Text(
-                                        textCard,
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: Text(flavourText,
-                                          textAlign: TextAlign.center),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: Text(whenText,
-                                          textAlign: TextAlign.center),
-                                    ),
-                                  ]),
-                                )),
-                          )
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Text(flavourText,
+                                        textAlign: TextAlign.center),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Text(whenText,
+                                        textAlign: TextAlign.center),
+                                  ),
+                                ]),
+                              )),
                         ])),
                   )
                 ]),
